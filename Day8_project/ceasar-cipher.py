@@ -45,9 +45,15 @@ def caesar_cipher(text, shift, direction):
             encrypted_text += letter  # Keep non-alphabet characters unchanged
     return encrypted_text
 
-direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number:\n"))
+replay = True
+while replay:
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+    text = input("Type your message:\n").lower()
+    shift = int(input("Type the shift number:\n"))
 
-result = caesar_cipher(text, shift, direction)
-print(f"The {direction}d text is: {result}")
+    result = caesar_cipher(text, shift, direction)
+    print(f"The {direction}d text is: {result}")
+
+    choice = input("Do you want to go again? Type 'yes' or 'no': ")
+    if choice.lower() != 'yes':
+        replay = False
